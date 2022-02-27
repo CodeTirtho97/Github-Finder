@@ -1,6 +1,6 @@
 # GITHUB FINDER
 
-### React App developed using Github API and searching and displaying github user profiles and their repos links. The app is currently deployed in Vercel.
+React App developed using Github API and searching and displaying github user profiles and their repos links. The app is currently deployed in Vercel.
 
 ##### Check Website : https://github-finder-app-teal.vercel.app/
 
