@@ -12,6 +12,8 @@
 
 **GitHub Finder** is a React-based web application that allows users to search for GitHub profiles, retrieve detailed information about users, and view their repositories, followers, and more. It utilizes the **GitHub API** for real-time data fetching and provides a sleek, responsive UI powered by **TailwindCSS**.
 
+![Github_Finder](https://github.com/user-attachments/assets/cb0f75c5-809c-4ca9-8a7d-6515f8d3078b)
+
 ---
 
 ## ✨ Features
@@ -94,11 +96,17 @@ The app will run on http://localhost:3000.
 - User search bar with auto-clear functionality.
 - Displays a grid of user profiles retrieved from the API.
 
+![image](https://github.com/user-attachments/assets/f6b12c97-300d-443b-95dc-7d66a201c7d8)
+
 #### **About Page**:
 - Overview of the application with an animated GitHub logo and version details.
 
+![image](https://github.com/user-attachments/assets/08348536-fa71-47c9-b127-7058719bf203)
+
 #### **Not Found Page**:
 - Displayed when a user navigates to an invalid route.
+
+![image](https://github.com/user-attachments/assets/2a569408-2c3e-4e44-9fe1-5f936f479627)
 
 ---
 
