@@ -66,7 +66,6 @@ The app will run on http://localhost:3000.
 ---
 
 ## 📂 Project Structure
-    ```bash
     github-finder/
     ├── public/              # Static assets
     ├── src/
