@@ -22,6 +22,7 @@ const githubReducer = (state, action) => {
       return {
         ...state,
         users: [],
+        loading: false, // Ensure loading is reset
       };
     default:
       return state;

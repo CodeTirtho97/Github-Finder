@@ -9,7 +9,6 @@ import { getUserAndRepos } from "../context/github/GithubActions";
 
 function User() {
   const { user, loading, repos, dispatch } = useContext(GithubContext);
-
   const params = useParams();
 
   useEffect(() => {
@@ -42,125 +41,100 @@ function User() {
     return <Spinner />;
   }
   return (
-    <>
-      <div className="w-full mx-auto lg:w-10/12">
+    <div className="user-container bg-gray-900 text-gray-100 min-h-screen px-6 py-8">
+      <div className="w-full mx-auto lg:w-9/12">
         <div className="mb-4">
-          <Link to="/" className="btn btn-ghost">
+          <Link
+            to="/"
+            className="btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg shadow-md"
+          >
             Back to Search
           </Link>
         </div>
-        <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 mb-8 md:gap-8">
-          <div className="custom-card-image mb-6 md:mb-0">
-            <div className="rounded-lg shadow-xl card-image-full">
-              <figure>
-                <img src={avatar_url} alt="" />
-              </figure>
-              <div className="card-body justify-end">
-                <h2 className="card-title mb-0 text-lg">{name}</h2>
-              </div>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="card bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center">
+            <img src={avatar_url} alt="" className="rounded-lg shadow-lg w-36 mb-4" />
+            <h2 className="text-xl font-bold text-gray-100 text-center mb-2">{name}</h2>
+            <p className="badge bg-green-500 text-white py-1 px-3 rounded-full mt-2">{type}</p>
+            {hireable && (
+              <p className="badge bg-blue-500 text-white py-1 px-3 rounded-full mt-2">
+                Hireable
+              </p>
+            )}
           </div>
-          <div className="col-span-2">
-            <div className="mb-6">
-              <h1 className="text-4xl card-title">
-                {name}
-                <div className="ml-2 mr-1 badge badge-success">{type}</div>
-                {hireable && (
-                  <div className="mx-1 badge badge-info">Hireable</div>
-                )}
-              </h1>
-              <p>{bio}</p>
-              <div className="mt-4 card-actions">
-                <a
-                  href={html_url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-outline"
-                >
-                  Visit Github Profile
-                </a>
-              </div>
+          <div className="col-span-2 bg-gray-800 p-4 rounded-lg shadow-md flex flex-col justify-between">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-100 mb-3">{name}</h1>
+              <p className="text-sm text-gray-300 mb-4">{bio}</p>
             </div>
-
-            <div className="w-full rounded-lg shadow-md bg-base-100 stats">
+            <a
+              href={html_url}
+              target="_blank"
+              rel="noreferrer"
+              className="btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg shadow-md self-start"
+            >
+              Visit GitHub Profile
+            </a>
+            <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
               {location && (
-                <div className="stat">
-                  <div className="stat-title text-md">Location</div>
-                  <div className="stat-value text-lg">{location}</div>
+                <div className="text-gray-400">
+                  <strong>Location:</strong> {location}
                 </div>
               )}
               {blog && (
-                <div className="stat">
-                  <div className="stat-title text-md">Website</div>
-                  <div className="stat-value text-lg">
-                    <a
-                      href={`https://${blog}`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {blog}
-                    </a>
-                  </div>
+                <div className="text-gray-400">
+                  <strong>Website:</strong>{" "}
+                  <a
+                    href={`https://${blog}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-blue-400 hover:underline"
+                  >
+                    {blog}
+                  </a>
                 </div>
               )}
               {twitter_username && (
-                <div className="stat">
-                  <div className="stat-title text-md">Twitter</div>
-                  <div className="stat-value text-lg">
-                    <a
-                      href={`https://twitter.com/${twitter_username}`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {twitter_username}
-                    </a>
-                  </div>
+                <div className="text-gray-400">
+                  <strong>Twitter:</strong>{" "}
+                  <a
+                    href={`https://twitter.com/${twitter_username}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-blue-400 hover:underline"
+                  >
+                    @{twitter_username}
+                  </a>
                 </div>
               )}
             </div>
           </div>
         </div>
-        <div className="w-full py-5 mb-6 rounded-lg shadow-md bg-base-100 stats">
-          <div className="stat">
-            <div className="stat-figure text-secondary">
-              <FaUsers className="text-3xl md:text-5xl" />
-            </div>
-            <div className="stat-title pr-5">Followers</div>
-            <div className="stat-value pr-5 text-3xl md:text-4xl">
-              {followers}
-            </div>
+        <div className="stats bg-gray-800 p-4 rounded-lg shadow-md mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="stat text-center">
+            <FaUsers className="text-5xl text-gray-400 mb-2" />
+            <p className="text-lg text-gray-400">Followers</p>
+            <p className="text-lg font-bold text-gray-100">{followers}</p>
           </div>
-          <div className="stat">
-            <div className="stat-figure text-secondary">
-              <FaUserFriends className="text-3xl md:text-5xl" />
-            </div>
-            <div className="stat-title pr-5">Following</div>
-            <div className="stat-value pr-5 text-3xl md:text-4xl">
-              {following}
-            </div>
+          <div className="stat text-center">
+            <FaUserFriends className="text-5xl text-gray-400 mb-2" />
+            <p className="text-lg text-gray-400">Following</p>
+            <p className="text-lg font-bold text-gray-100">{following}</p>
           </div>
-          <div className="stat">
-            <div className="stat-figure text-secondary">
-              <FaCodepen className="text-3xl md:text-5xl" />
-            </div>
-            <div className="stat-title pr-5">Public Repos</div>
-            <div className="stat-value pr-5 text-3xl md:text-4xl">
-              {public_repos}
-            </div>
+          <div className="stat text-center">
+            <FaCodepen className="text-5xl text-gray-400 mb-2" />
+            <p className="text-lg text-gray-400">Public Repos</p>
+            <p className="text-lg font-bold text-gray-100">{public_repos}</p>
           </div>
-          <div className="stat">
-            <div className="stat-figure text-secondary">
-              <FaStore className="text-3xl md:text-5xl" />
-            </div>
-            <div className="stat-title pr-5">Public Gists</div>
-            <div className="stat-value pr-5 text-3xl md:text-4xl">
-              {public_gists}
-            </div>
+          <div className="stat text-center">
+            <FaStore className="text-5xl text-gray-400 mb-2" />
+            <p className="text-lg text-gray-400">Public Gists</p>
+            <p className="text-lg font-bold text-gray-100">{public_gists}</p>
           </div>
         </div>
         <RepoList repos={repos} />
       </div>
-    </>
+    </div>
   );
 }
 

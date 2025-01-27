@@ -27,37 +27,31 @@ function UserSearch() {
   };
 
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8">
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div className="form-control">
-            <div className="relative">
-              <input
-                type="text"
-                className="w-full pr-40 bg-gray-200 input input-lg text-black"
-                placeholder="Search"
-                value={text}
-                onChange={handleChange}
-              />
-              <button
-                type="submit"
-                className="absolute top-0 right-0 rounded-l-none w-36 btn btn-lg"
-              >
-                Go
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-      {users.length > 0 && (
-        <div>
+    <div className="flex flex-col items-center justify-center gap-6 mb-8">
+      <form onSubmit={handleSubmit} className="w-full max-w-2xl">
+        <div className="flex">
+          <input
+            type="text"
+            className="flex-grow bg-gray-800 border border-gray-600 text-white placeholder-gray-400 rounded-l-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            placeholder="Search GitHub Users..."
+            value={text}
+            onChange={handleChange}
+          />
           <button
-            onClick={() => dispatch({ type: "CLEAR_USERS" })}
-            className="btn btn-ghost btn-lg"
+            type="submit"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-r-lg"
           >
-            Clear
+            Search
           </button>
         </div>
+      </form>
+      {users.length > 0 && (
+        <button
+          onClick={() => dispatch({ type: "CLEAR_USERS" })}
+          className="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg"
+        >
+          Clear Results
+        </button>
       )}
     </div>
   );

@@ -1,13 +1,136 @@
-# GITHUB FINDER
+# 🌐 GitHub Finder
 
-React App developed using Github API and searching and displaying github user profiles and their repos links. The app is currently deployed in Vercel.
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18.2.0-blue.svg" alt="React Badge" />
+  <img src="https://img.shields.io/badge/TailwindCSS-3.0.0-green.svg" alt="Tailwind Badge" />
+  <img src="https://img.shields.io/badge/API-GitHub%20API-black" alt="API Badge" />
+</p>
 
-##### Check Website : https://github-finder-app-teal.vercel.app/
+---
 
-![image](https://user-images.githubusercontent.com/57649083/155898397-348329fd-3455-4148-b078-b95f62425a88.png)
+## 🚀 About the Project
 
-![image](https://user-images.githubusercontent.com/57649083/155898407-ba2eee86-74f6-4506-a57c-2cb9277f5060.png)
+**GitHub Finder** is a React-based web application that allows users to search for GitHub profiles, retrieve detailed information about users, and view their repositories, followers, and more. It utilizes the **GitHub API** for real-time data fetching and provides a sleek, responsive UI powered by **TailwindCSS**.
 
-![image](https://user-images.githubusercontent.com/57649083/155898420-4f547eb1-6078-44ff-b8d6-2146cb8bb2c0.png)
+---
 
-![image](https://user-images.githubusercontent.com/57649083/155898439-428be506-8d07-4916-9ee3-d646be16297d.png)
+## ✨ Features
+
+- 🔍 **Search GitHub Profiles**: Quickly search for any GitHub user by their username.
+- 👤 **User Details**: View detailed user information, including bio, followers, following, public repositories, and public gists.
+- 📦 **Repository Details**: View repositories with information like stars, forks, issues, and watchers.
+- ⚡ **Responsive Design**: Fully responsive and compatible across devices.
+- 🎨 **Interactive UI**: Modern animations, hover effects, and dynamic updates.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React.js
+- **Styling**: TailwindCSS
+- **Icons**: React Icons
+- **API**: GitHub REST API
+
+---
+
+## ⚙️ Setup and Installation
+
+Follow these steps to run the project on your local system:
+
+### Prerequisites
+
+- Node.js (v14+)
+- NPM or Yarn
+- GitHub Personal Access Token (for API requests)
+
+### Steps
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/github-finder.git
+   cd github-finder
+2. **Install Dependencies**:
+   ```bash
+   npm install
+3. **Set Up Environment Variables**:
+    Create a .env file in the project root:
+    ```bash
+    REACT_APP_GITHUB_URL=https://api.github.com
+    REACT_APP_GITHUB_TOKEN=your_personal_access_token
+4. **Start the Development Server**:
+    ```bash
+    npm start
+
+The app will run on http://localhost:3000.
+
+---
+
+## 📂 Project Structure
+    ```bash
+    github-finder/
+    ├── public/              # Static assets
+    ├── src/
+    │   ├── components/
+    │   │   ├── layout/      # Navbar, Footer, Spinner
+    │   │   ├── users/       # User-related components
+    │   │   ├── repos/       # Repo-related components
+    │   ├── context/
+    │   │   ├── github/      # Context API for GitHub state management
+    │   │   ├── alert/       # Context API for alert state management
+    │   ├── pages/           # Home, About, and NotFound pages
+    │   ├── App.js           # Main app component
+    │   ├── index.js         # Entry point
+    ├── .env                 # Environment variables
+    ├── package.json         # Project dependencies and scripts
+    └── README.md            # Project documentation
+
+
+---
+
+## 🌟 Features Breakdown
+
+### 🖼️ Pages
+
+#### **Home Page**:
+- User search bar with auto-clear functionality.
+- Displays a grid of user profiles retrieved from the API.
+
+#### **About Page**:
+- Overview of the application with an animated GitHub logo and version details.
+
+#### **Not Found Page**:
+- Displayed when a user navigates to an invalid route.
+
+---
+
+### ⚙️ Components
+
+#### **Navbar**:
+- Persistent navigation bar with a responsive gradient background.
+
+#### **Footer**:
+- A footer with gradient styling that dynamically updates the current year.
+
+#### **User Search**:
+- Allows users to search for GitHub profiles.
+- Displays a "no users found" message when no results match.
+
+#### **User Results**:
+- Displays search results in a responsive grid layout.
+
+#### **User Details**:
+- Fetches and displays details for a specific GitHub user.
+- Includes repository list with real-time data.
+
+#### **Repository Item**:
+- Displays detailed information about individual repositories, including:
+  - 🌟 **Stars**
+  - 🍴 **Forks**
+  - 👀 **Watchers**
+  - 🛠️ **Open Issues**
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**. 

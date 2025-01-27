@@ -5,14 +5,14 @@ function Alert() {
   const { alert } = useContext(AlertContext);
   return (
     alert !== null && (
-      <p className="flex items-start mb-4 space-x-2">
+      <div className="flex items-center justify-center mb-4 space-x-3 p-4 bg-red-100 border border-red-400 rounded-lg shadow-lg text-red-800">
         {alert.type === "error" && (
           <svg
-            className="w-6 h-6 flex-none mt-0.5"
+            className="w-6 h-6 flex-none"
             fill="none"
             viewBox="0 0 24 24"
           >
-            <circle cx="12" cy="12" r="12" fill="#FECDD3"></circle>
+            <circle cx="12" cy="12" r="12" fill="#F87171"></circle>
             <path
               d="M8 8l8 8M16 8l-8 8"
               stroke="#B91C1C"
@@ -20,10 +20,10 @@ function Alert() {
             ></path>
           </svg>
         )}
-        <p className="flex-1 text-base font-semibold leading-7 text-white">
-          <strong>{alert.msg}</strong>
-        </p>
-      </p>
+        <span className="text-lg font-semibold">
+          {alert.msg}
+        </span>
+      </div>
     )
   );
 }

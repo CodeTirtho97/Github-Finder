@@ -3,11 +3,11 @@ import RepoItem from "./RepoItem";
 
 function RepoList({ repos }) {
   return (
-    <div className="rounded-lg shadow-lg card bg-base-100">
-      <div className="card-body">
-        <h2 className="text-3xl my-4 font-bold card-title">
-          Latest Repositories
-        </h2>
+    <div className="bg-gray-900 p-6 rounded-lg shadow-lg mt-8">
+      <h2 className="text-2xl font-bold text-orange-400 mb-6">
+        Latest Repositories
+      </h2>
+      <div className="space-y-4">
         {repos.map((repo) => (
           <RepoItem key={repo.id} repo={repo} />
         ))}
@@ -19,4 +19,5 @@ function RepoList({ repos }) {
 RepoList.propTypes = {
   repos: PropTypes.array.isRequired,
 };
+
 export default RepoList;

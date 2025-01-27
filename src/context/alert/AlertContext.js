@@ -14,6 +14,7 @@ export const AlertProvider = ({ children }) => {
       payload: { msg, type },
     });
 
+    // Auto-remove the alert after 3 seconds
     setTimeout(() => dispatch({ type: "REMOVE_ALERT" }), 3000);
   };
 

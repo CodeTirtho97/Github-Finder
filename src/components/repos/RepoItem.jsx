@@ -1,5 +1,4 @@
-import PropTypes from "prop-types";
-import { FaEye, FaInfo, FaLink, FaStar, FaUtensils } from "react-icons/fa";
+import { FaEye, FaStar, FaInfoCircle, FaUtensils } from "react-icons/fa";
 
 function RepoItem({ repo }) {
   const {
@@ -11,36 +10,37 @@ function RepoItem({ repo }) {
     watchers_count,
     stargazers_count,
   } = repo;
+
   return (
-    <div className="mb-2 rounded-md card bg-gray-800 hover:bg-gray-900">
-      <div className="card-body">
-        <h3 className="mb-2 text-xl font-semibold">
-          <a href={html_url} target="_blank" rel="noreferrer">
-            <FaLink className="inline mr-1" /> {name}
-          </a>
-        </h3>
-        <p className="mb-3">{description}</p>
-        <div>
-          <div className="mr-2 badge badge-info badge-lg">
-            <FaEye className="mr-2" /> {watchers_count}
-          </div>
-          <div className="mr-2 badge badge-success badge-lg">
-            <FaStar className="mr-2" /> {stargazers_count}
-          </div>
-          <div className="mr-2 badge badge-error badge-lg">
-            <FaInfo className="mr-2" /> {open_issues}
-          </div>
-          <div className="mr-2 badge badge-warning badge-lg">
-            <FaUtensils className="mr-2" /> {forks}
-          </div>
+    <div className="bg-purple-900 p-6 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
+      <h3 className="text-xl font-bold text-white mb-3 hover:text-purple-300 transition-colors duration-300">
+        <a href={html_url} target="_blank" rel="noreferrer">
+          {name}
+        </a>
+      </h3>
+      {description && (
+        <p className="text-sm text-gray-200 mb-4">{description}</p>
+      )}
+      <div className="flex flex-wrap gap-4 justify-between items-center text-gray-300">
+        <div className="flex items-center gap-2">
+          <FaEye className="text-blue-400" />
+          <span className="text-sm font-medium">{watchers_count} Watchers</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <FaStar className="text-yellow-400" />
+          <span className="text-sm font-medium">{stargazers_count} Stars</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <FaInfoCircle className="text-red-400" />
+          <span className="text-sm font-medium">{open_issues} Issues</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <FaUtensils className="text-green-400" />
+          <span className="text-sm font-medium">{forks} Forks</span>
         </div>
       </div>
     </div>
   );
 }
-
-RepoItem.propTypes = {
-  repo: PropTypes.object.isRequired,
-};
 
 export default RepoItem;
