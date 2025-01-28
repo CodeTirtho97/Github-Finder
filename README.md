@@ -49,7 +49,7 @@ Follow these steps to run the project on your local system:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/github-finder.git
+   git clone https://github.com/CodeTirtho97/Github-Finder.git
    cd github-finder
 2. **Install Dependencies**:
    ```bash
